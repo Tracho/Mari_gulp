@@ -1,0 +1,424 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+  overflow-x: hidden;
+  /* Отключение горизонтальной прокрутки */
+  width: 100%;
+  background-color: #FEFFF0;
+}
+
+* {
+  font-family: "Space Grotesk", serif;
+  font-optical-sizing: auto;
+  font-weight: $fw_r;
+  font-style: normal;
+}
+.bg_black{
+  background: #000;
+}
+
+.lst_none {
+  list-style-type: none;
+}
+
+.hr6 {
+  border-bottom: 6px solid #000;
+}
+
+.position-relative {
+  position: relative;
+} 
+
+
+// #hidden
+.over_hidden {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+// #width
+.w_100 {
+  width: 100%;
+}
+
+// #Hover #Links
+@mixin hoverMark {
+  content: "";
+  position: absolute;
+  top: 32%;
+  left: 2%;
+  transform: translate(0%, 50%);
+  width: 95%;
+  height: 30%;
+  z-index: -1;
+  background-color: $mark;
+  transition: ease 0.3s;
+}
+
+@mixin hoverMarkActive {
+  content: "";
+  position: absolute;
+  top: 32%;
+  left: 2%;
+  transform: translate(0%, 50%);
+  width: 85%;
+  height: 30%;
+  z-index: -1;
+  background-color: $mark;
+  transition: ease 0.3s;
+}
+
+li.hover {
+  a {
+    span {
+      position: relative;
+    }
+
+    span::before {
+      @include hoverMarkActive;
+      width: 0%;
+    }
+
+    &:hover {
+      span::before {
+        @include hoverMark;
+      }
+    }
+  }
+
+  &[data-active="true"] {
+    a {
+      span::before {
+        @include hoverMarkActive;
+      }
+
+      &:hover {
+        span::before {
+          @include hoverMark;
+        }
+      }
+    }
+  }
+}
+
+a.hover {
+  .texthover {
+    position: relative;
+
+    &::before {
+      @include hoverMarkActive;
+      width: 0%;
+    }
+  }
+
+  &:hover {
+    .texthover::before {
+      @include hoverMark;
+    }
+  }
+}
+
+// #Hover #Links
+
+
+
+// #Btn 
+.btn_blue {
+  // padding: clamp(1rem, 0.7083rem + 1.5556vw, 1.875rem) clamp(1.875rem, 1.4583rem + 2.2222vw, 3.125rem); // 30 - 16 &&  54 - 30 |1200 - 300
+  padding: clamp(0.625rem, 0.3333rem + 1.5556vw, 1.5rem) clamp(1.5rem, 0.9792rem + 2.7778vw, 3.0625rem); // 24 - 10 &&  49 - 24  |1200 - 300
+  background-color: #BAE6FF;
+  border: 6px solid #00000000;
+  outline: clamp(0.25rem, 0.1667rem + 0.4444vw, 0.5rem) solid #000; // 8 - 4 1200  - 300
+  font-size: clamp(1rem, 0.7292rem + 1.4444vw, 1.8125rem);
+  font-weight: $fw_b;
+  border-radius: 100px;
+  text-decoration: none;
+  color: #000;
+  position: relative;
+  display: inline-flex;
+  user-select: none;
+  opacity: 0;
+  transition:  background-color 0.2s ease, border 0.4s ease, outline 0.2s ease;
+ 
+  a , span{
+    text-decoration: none;
+    color: #000;
+    font-weight: $fw_b;
+  }
+  .text{
+    position: relative;
+    &::before{
+      content: "";
+      @include ab_center;
+      top: 60%;
+      width: 98%;
+      height: 0%;
+      max-height:0px;
+      background-color: #ffdc58;  
+      z-index: -1;
+      transition: all 0.4s ease;
+    }
+  }
+
+
+  &[data-anim="true"] {
+    opacity: 1;
+    animation: bounce-in-left 1.5s both;
+
+    @keyframes bounce-in-left {
+      0% {
+        -webkit-transform: translateX(-300px);
+        transform: translateX(-300px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+        opacity: 0;
+      }
+
+      38% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+        opacity: 1;
+      }
+
+      55% {
+        -webkit-transform: translateX(-68px);
+        transform: translateX(-68px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+      }
+
+      72% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+      }
+
+      81% {
+        -webkit-transform: translateX(-28px);
+        transform: translateX(-28px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+      }
+
+      90% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+      }
+
+      95% {
+        -webkit-transform: translateX(-9px);
+        transform: translateX(-9px);
+        -webkit-animation-timing-function: ease-in;
+        animation-timing-function: ease-in;
+      }
+
+      100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+        -webkit-animation-timing-function: ease-out;
+        animation-timing-function: ease-out;
+      }
+    }
+
+    .btn_lines {
+      svg {
+        .btn_lines_1 {
+          animation: btn_lines_1 0.5s 1.5s ease forwards;
+          opacity: 0;
+
+          @keyframes btn_lines_1 {
+            0% {
+              transform: scale3d(0.3, 0.3, 1);
+              opacity: 0.3;
+            }
+
+            20% {}
+
+            50% {
+              transform: scale3d(1.1, 1.1, 1);
+            }
+
+            70% {
+              transform: scale3d(0.9, 0.9, 1);
+            }
+
+            99% {
+              opacity: 1;
+              transform: scale3d(1, 1, 1);
+            }
+
+            100% {
+              opacity: 0;
+            }
+          }
+        }
+
+        .btn_lines_2 {
+          animation: btn_lines 0.5s 1.6s ease forwards;
+          opacity: 0;
+        }
+
+        .btn_lines_3 {
+          animation: btn_lines 0.5s 1.7s ease forwards;
+          opacity: 0;
+        }
+
+        @keyframes btn_lines {
+          0% {
+            transform: scale3d(0.5, 0.5, 1);
+            opacity: 0.3;
+          }
+
+          20% {}
+
+          50% {
+            transform: scale3d(1.1, 1.1, 1);
+          }
+
+          70% {
+            transform: scale3d(0.9, 0.9, 1);
+          }
+
+          99% {
+            opacity: 1;
+            transform: scale3d(1, 1, 1);
+          }
+
+          100% {
+            opacity: 0;
+          }
+        }
+
+        .g_before_btn_lines {
+          opacity: 0;
+          animation: g_before_btn_lines_show 0.1s 1.75s ease forwards; 
+          @keyframes g_before_btn_lines_show {
+            0% {
+              opacity: 0;
+            }
+
+            100% {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+  .btn_lines {
+    @include ab_center;
+    top: 110%;
+    left: 115%;
+    pointer-events: none;
+
+    svg {
+      max-width: clamp(2.8125rem, 2.1458rem + 3.5556vw, 4.8125rem); // 77 - 45 1200 - 300 
+
+      .btn_lines_1_before,
+      .btn_lines_2_before,
+      .btn_lines_3_before {
+        // stroke-dasharray: 68;
+        // stroke-dashoffset: 0;
+        // stroke-width: 2px;
+        // stroke: blue;   
+        animation: btn_lines_hover_show 0.2s ease forwards;
+        opacity: 1;
+
+        @keyframes btn_lines_hover_show {
+          0% {
+            opacity: 1;
+            transform: scale3d(0.8, 0.8, 1);
+          }
+          70%{transform: scale3d(1.1, 1.1, 1);}
+          100% {
+            opacity: 1;
+            transform: scale3d(1, 1, 1);
+          }
+        }
+      }
+    }
+  }
+
+
+
+  &:hover {
+    background-color: #a5deff;
+    outline: clamp(0.125rem, 0.0833rem + 0.2222vw, 0.25rem) solid #000; // 4 - 2 1200 - 300  
+    border: 6px solid #000000;
+    transition:  background-color 0.2s ease, border 0.4s ease, outline 0.2s ease;
+
+    .text{
+      position: relative;
+      &::before{ 
+        height: 30%;
+        max-height:30px;
+        background-color: #ffdc58;  
+        transition: all 0.4s ease;
+      }
+    }
+    .btn_lines {
+      svg {
+
+        .btn_lines_1_before,
+        .btn_lines_2_before,
+        .btn_lines_3_before {
+          animation: btn_lines_hover_hidden 0.2s ease forwards;
+          opacity: 1;
+
+          @keyframes btn_lines_hover_hidden {
+            0% {
+              transform: scale3d(1, 1, 1);
+            }
+
+            100% {
+              transform: scale3d(0.8, 0.8, 1);
+            }
+          }
+        }
+      }
+    }
+
+    &:focus, &:active{
+      .text{
+        position: relative;
+        &::before{ 
+          top: 50%;
+          height: 50%;
+          max-height:30px;
+          background-color: #ffdc58;  
+          transition: all 0.4s ease;
+        }
+      }
+      .btn_lines {
+        svg { 
+          .btn_lines_1_before,
+          .btn_lines_2_before,
+          .btn_lines_3_before {
+            animation: btn_lines_hover_hidden_focus 0.2s ease forwards;
+            opacity: 1;
+  
+            @keyframes btn_lines_hover_hidden_focus {
+              0% {
+                transform: scale3d(0.8, 0.8, 1);
+              }
+  
+              100% {
+                transform: scale3d(0.7, 0.7, 1);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

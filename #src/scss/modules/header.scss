@@ -1,0 +1,1011 @@
+ //#SVG #Animation Svg
+ //#Lamp
+ .svg_lamp {
+   @include ab_center();
+   left: 10%;
+   top: 40%;
+
+   // filter: drop-shadow(-9px 10px 0px #231F20);
+
+   &:hover {
+     svg {
+       #svg_bg_lamp {
+         fill: #231f20a1;
+         transition: fill 0.3s ease;
+       }
+     }
+   }
+ }
+
+ ._animScroll[data-anim="true"] {
+   #svg_bg_lamp {
+     fill: $mark; // #231f20 to $mark
+     transition: fill 0.3s ease;
+     animation: svg_bg_lamp 2s linear;
+   }
+ }
+
+ @keyframes svg_bg_lamp {
+   0% {
+     fill: #231f20a1;
+   }
+
+   70% {
+     fill: #231f20a1;
+   }
+
+   90% {
+     fill: #6b6446;
+   }
+
+   100% {
+     fill: $mark;
+   }
+ }
+
+ ._animScroll[data-anim="true"] {
+   #ignition {
+     fill: $mark; // #e3570b to #231F20
+     animation: ignition 2s linear forwards;
+
+     stroke-dasharray: 186;
+     stroke-width: 1px;
+   }
+ }
+
+ @keyframes ignition {
+   0% {
+     opacity: 0;
+     fill: #231F2000;
+     stroke: #231F20;
+     stroke-dasharray: 18;
+   }
+
+   12% {
+     opacity: 1;
+     stroke-dasharray: 16;
+   }
+
+   25% {
+     fill: #682a0900;
+     stroke: #682a09;
+     stroke-dasharray: 40;
+   }
+
+   50% {
+     fill: #e3570b00;
+     stroke: #e3570b;
+     stroke-dasharray: 100;
+   }
+
+   70% {
+     stroke-dasharray: 150;
+     fill: #e3570b;
+
+   }
+
+   85% {
+     stroke-dasharray: 186;
+     fill: #f8e6a7;
+   }
+
+   90% {
+     fill: #f8e6a7;
+     stroke: #f8e6a7;
+   }
+
+   95% {
+     // stroke-width: 1px;
+   }
+
+   100% {
+     fill: #231F20;
+     stroke: #231F2000;
+     stroke-width: 0px;
+   }
+ }
+
+ ._animScroll[data-anim="true"] {
+
+   #beam4,
+   #beam3,
+   #beam2,
+   #beam1 {
+     //  fill: red;
+     opacity: 0;
+     animation: beam 1.3s 2.5s linear forwards;
+   }
+ }
+
+ @keyframes beam {
+   0% {
+     opacity: 0;
+     transform: translate(0%, 0%);
+   }
+
+   16% {
+     opacity: 1;
+     transform: translate(0%, 1%);
+   }
+
+   33% {
+     transform: translate(0%, 0%);
+   }
+
+   49% {
+     transform: translate(0%, 1%);
+   }
+
+   66% {
+     transform: translate(0%, 0%);
+   }
+
+   83% {
+     transform: translate(0%, 1%);
+   }
+
+   100% {
+     opacity: 1;
+     transform: translate(0%, 0%);
+   }
+ }
+
+ #beam4Op,
+ #beam3Op,
+ #beam2Op,
+ #beam1Op {
+   opacity: 0;
+ }
+
+ ._animScroll[data-anim="true"] {
+   #beam4Op {
+     animation: beamOp 0.3s 2.3s linear forwards;
+   }
+
+   #beam3Op {
+     animation: beamOp 0.3s 2.1s linear forwards;
+   }
+
+   #beam2Op {
+     animation: beamOp 0.3s 1.9s linear forwards;
+   }
+
+   #beam1Op {
+     animation: beamOp 0.3s 1.7s linear forwards;
+   }
+ }
+
+ @keyframes beamOp {
+   0% {
+     opacity: 0;
+   }
+
+   99% {
+     opacity: 1;
+   }
+
+   100% {
+     opacity: 0;
+   }
+ }
+
+ // #picture_smile
+ .picture_smile {
+   @include ab_center();
+   opacity: 0;
+ }
+
+ //  ._animScroll[data-anim="true"] {
+ .picture_smile[data-anim="true"] {
+   opacity: 1;
+
+   svg {
+     transform: rotate(40deg) scaleX(-1);
+     animation: svg_bg_smile_0 1.5s linear forwards;
+
+     @keyframes svg_bg_smile_0 {
+       0% {
+         transform: rotate(40deg) scaleX(-1);
+       }
+
+       50% {
+         transform: rotate(45deg) scaleX(-1);
+       }
+
+       51% {
+         transform: rotate(18deg) scaleX(1);
+       }
+
+       99% {
+         transform: rotate(13deg) scaleX(1);
+       }
+
+       100% {
+         transform: rotate(0deg) scaleX(1);
+       }
+     }
+
+     &:hover {
+       #smile_0 {
+         opacity: 0 !important;
+       }
+
+       #smile_1 {
+         opacity: 1 !important;
+       }
+     }
+   }
+
+   #smile_0 {
+     opacity: 0;
+     animation: smile_0 1s 1.6s ease forwards;
+
+     @keyframes smile_0 {
+       0% {
+         opacity: 0;
+       }
+
+       10% {
+         opacity: 1;
+       }
+
+       50% {
+         transform: matrix(1, 0, 0, 0.9, 0, 0);
+       }
+
+       100% {
+         transform: matrix(1, 0, 0, 1, 0, 0);
+         opacity: 1;
+       }
+     }
+   }
+
+   #smile_1 {
+     animation: smile_1 1.5s linear forwards;
+
+     @keyframes smile_1 {
+       0% {
+         opacity: 1;
+       }
+
+       99% {
+         opacity: 1;
+       }
+
+       100% {
+         opacity: 0;
+       }
+     }
+   }
+ }
+
+ //  }
+
+
+ // #red_star
+
+ .red_star {
+   @include ab_center();
+   left: 83%;
+   top: 86%;
+ }
+
+ ._animScroll[data-anim="true"] {
+   .red_star {
+     transform: translate(-50%, -50%);
+     left: 83%;
+     top: 86%;
+     -webkit-animation: vibrate-1 1s linear forwards;
+     animation: vibrate-1 1s linear forwards;
+
+     &:hover {
+       animation: vibrate-1 0.7s linear infinite;
+     }
+   }
+ }
+
+ @keyframes vibrate-1 {
+   0% {
+     transform: translate(-50%, -50%);
+   }
+
+   10% {
+     transform: translate(calc(-50% + 2px), calc(-50% + 2px));
+   }
+
+   20% {
+     transform: translate(calc(-50% - 2px), calc(-50% - 2px));
+   }
+
+   30% {
+     transform: translate(calc(-50% + 2px), calc(-50% + 2px));
+   }
+
+   40% {
+     transform: translate(calc(-50% + 2px), calc(-50% - 2px));
+   }
+
+   50% {
+     transform: translate(calc(-50% + 2px), calc(-50% + 2px));
+   }
+
+   60% {
+     transform: translate(calc(-50% - 2px), calc(-50% - 2px));
+   }
+
+   70% {
+     transform: translate(calc(-50% + 2px), calc(-50% + 2px));
+   }
+
+   80% {
+     transform: translate(calc(-50% + 2px), calc(-50% - 2px));
+   }
+
+   100% {
+     transform: translate(-50%, -50%);
+   }
+ }
+
+
+ .filter_sadow_painting_header {
+   filter: drop-shadow(-9px 10px 0px #00000070);
+
+   .img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     max-width: 512px;
+     max-height: 512px;
+   }
+
+   .svg_lamp>svg {
+     width: 100%;
+     height: 100%;
+     max-width: clamp(3.75rem, 3.0833rem + 3.5556vw, 5.75rem); // 92 - 60 1200 - 300
+     //  max-height: clamp(3.75rem, 3.0833rem + 3.5556vw, 5.75rem); // 92 - 60 1200 - 300
+     min-height: 50px;
+     min-width: 50px;
+   }
+ }
+
+ .picture_smile>svg {
+   // width: 100%;
+   // height: 100%;
+   // max-width: clamp(3.25rem, 1.2411rem + 6.4286vw, 6.0625rem); // 97 - 52 1200 - 500
+   // max-height:  clamp(2.4375rem, 0.0714rem + 7.5714vw, 5.75rem); // 92 - 39 1200 - 500
+   // min-height: 39px;
+   // min-width: 52px;
+ }
+
+ .red_star {
+   img {
+     width: 100%;
+     height: 100%;
+     max-width: clamp(5.0625rem, 3.6042rem + 7.7778vw, 9.4375rem); // 151 - 81  1200 - 300
+     max-height: clamp(4.1875rem, 3.0625rem + 6vw, 7.5625rem); //121 - 67 1200 - 300
+     object-fit: cover;
+     min-height: 67px;
+     min-width: 81px;
+   }
+ }
+
+ @mixin header_mark_before_after() {
+   content: "";
+   position: absolute;
+   width: 0%;
+   height: 45%;
+   left: 0%;
+   transform: translate(0%, -50%);
+   top: 77%;
+   background-color: $mark;
+   opacity: 1;
+ }
+
+ .header {
+   position: relative;
+
+   h1,
+   mark {
+     font-size: clamp(2.5rem, 0.7143rem + 5.7143vw, 5rem); // 80 - 40 1200 - 300
+     font-weight: $fw_m;
+     // opacity: 0;
+     color: #fefff000;
+     //  color: #ff0000;
+   }
+
+   h1 {
+     position: relative;
+
+     &::after {
+       @include header_mark_before_after();
+       top: 30%;
+       transform: translate(0%, 0%);
+       top: 0%;
+       width: 100%;
+       height: 0%;
+       transition: height 0.7s ease;
+     }
+   }
+
+   mark {
+     background-color: #ffdb5800;
+     position: relative;
+     display: inline-block;
+
+     &::before,
+     &:after {
+       @include header_mark_before_after();
+     }
+
+     &:after {
+       background-color: #fefff0;
+       left: 100%;
+       transform: translate(-100%, -50%);
+       transition: width 0.7s ease;
+     }
+   }
+
+   &[data-anim="true"] {
+     mark {
+       &::before {
+         width: 100%;
+         opacity: 1;
+         transition: width 1.5s ease-in;
+       }
+     }
+
+     &:hover {
+       h1 {
+         &::after {
+           height: 55%;
+           transition: height 0.7s ease;
+         }
+       }
+
+       mark:after {
+         width: 30%;
+         transition: width 0.7s ease;
+       }
+     }
+   }
+ }
+
+
+ //#h1_animation_text #h1 animation text
+ .h1_animation_text {
+   @include ab_center;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-wrap: wrap;
+   align-items: baseline;
+   pointer-events: none;
+
+   div {
+     position: relative;
+     display: flex;
+     flex-wrap: nowrap;
+     padding-right: clamp(0.625rem, 0.2232rem + 1.2857vw, 1.1875rem);
+   }
+
+
+   .h1AminText {
+     // display: inline-flex; 
+     // flex-wrap: wrap;
+     font-size: clamp(2.5rem, 0.7143rem + 5.7143vw, 5rem); // 80 - 40 1200 - 300
+     font-weight: $fw_m;
+     color: #000;
+     display: inline-flex;
+     flex-wrap: wrap;
+     opacity: 0;
+
+     &[data-not_s="false"] {
+       display: inline-flex;
+       flex-wrap: wrap;
+     }
+
+   }
+ }
+
+
+ @mixin mark_left_to_right {
+   position: absolute;
+   content: "";
+   left: 0%;
+   top: 50%;
+   transform: translate(0%, -50%);
+   background-color: $mark;
+   width: 100%;
+   height: 100%;
+ }
+
+ .Smile_name_arrow {
+   position: relative;
+   display: inline-flex;
+   align-items: center;
+   transform: rotate(-23deg);
+   z-index: 10;
+
+   &::after {
+     @include mark_left_to_right();
+     width: 0%;
+     left: 100%;
+     transform: translate(-100%, -50%);
+     z-index: -1;
+     transition: width 0.4s ease-in-out;
+   }
+
+   .text_name {
+     position: relative;
+     font-size: 29px;
+     text-transform: uppercase;
+
+     &::after {
+       @include mark_left_to_right();
+     }
+
+     &::before {
+       @include mark_left_to_right();
+       width: 0%;
+       z-index: -1;
+       left: 100%;
+       transform: translate(-100%, -50%);
+       transition: width 0.4s ease-in-out;
+     }
+   }
+
+   .small_smil {
+     transform: rotate(45deg);
+   }
+
+   .arrow_name {
+    //  pointer-events: none;
+     filter: drop-shadow(-1px 4px 0px #000000);
+     position: absolute;
+     top: 100%;
+     left: 100%;
+     transform: rotate(26deg) translate(-50%, 25%);
+     width: 100%;
+     height: 100%;
+     transition: filter 0.3s ease;
+   }
+
+   &:hover {
+     .small_smil_eye {
+       animation: wink 0.3s linear !important;
+
+       @keyframes wink {
+         0% {
+           opacity: 0;
+         }
+
+         100% {
+           opacity: 1;
+         }
+       }
+     }
+
+     .text_name {
+       &:before {
+         width: 100%;
+         transition: width 0.4s ease-in-out;
+       }
+     }
+
+     .arrow_name {
+      filter: drop-shadow(-1px 4px 0px #00000066);
+      transition: filter 0.3s ease;
+     }
+     svg {
+       path {
+         stroke-width: 3px; 
+         transition: stroke-width 0.3s ease;
+       }
+     }
+   }
+ }
+
+ .sticker_star_smile {
+   display: inline-flex;
+   transform: rotate(45deg);
+
+   svg {
+     position: relative;
+     transition: all 0.5s ease-in;
+   }
+
+ }
+
+
+
+
+ // #Active Animation
+ .header[data-anim="true"],
+ ._animScroll[data-anim="true"] {
+   .h1AminText {
+     &[data-text_anim="ani1"] {
+       animation: ani1 0.5s linear forwards;
+
+       @keyframes ani1 {
+         0% {
+           opacity: 0;
+           transform: matrix(1, 0, 0, 1, 0, -35);
+         }
+
+         50% {
+           opacity: 1;
+           transform: matrix(1, 0, 0, 0.8, 0, 5);
+         }
+
+         100% {
+           transform: matrix(1, 0, 0, 1, 0, 0);
+           opacity: 1;
+         }
+       }
+     }
+
+     &[data-text_anim="ani2"] {
+       animation: ani2 0.5s linear forwards;
+
+       @keyframes ani2 {
+         0% {
+           opacity: 0;
+           transform: rotate(0deg) matrix(1, 0, 0, 1, 5, -35);
+         }
+
+         50% {
+           transform: rotate(-10deg) matrix(1, 0, 0, 1, 0, 0);
+         }
+
+         75% {
+           transform: rotate(3deg) matrix(1, 0, 0, 1, 0, 0);
+         }
+
+         100% {
+           transform: rotate(0deg) matrix(1, 0, 0, 1, 0, 0);
+           opacity: 1;
+         }
+       }
+     }
+
+     &[data-text_anim="ani3"] {
+       animation: ani3 0.5s linear forwards;
+
+       @keyframes ani3 {
+         0% {
+           opacity: 0;
+           transform: rotate(0deg) matrix(1, 0, 0, 1, -5, -35);
+         }
+
+         50% {
+           transform: rotate(10deg) matrix(1, 0, 0, 1, 0, 0);
+         }
+
+         75% {
+           transform: rotate(-3deg) matrix(1, 0, 0, 1, 0, 0);
+         }
+
+         100% {
+           transform: rotate(0deg) matrix(1, 0, 0, 1, 0, 0);
+           opacity: 1;
+         }
+       }
+     }
+
+     &[data-text_anim="ani4"] {
+       animation: ani4 0.5s linear forwards;
+
+       @keyframes ani4 {
+         0% {
+           opacity: 0;
+           transform: rotate(0deg) matrix(0.3, 0, 0, 1, 0, -35);
+         }
+
+         50% {
+           transform: rotate(0deg) matrix(1, 0, 0, 1, 0, 0);
+         }
+
+         75% {
+           transform: rotate(0deg) matrix(1.3, 0, 0, 1, 0, 0);
+         }
+
+         100% {
+           transform: rotate(0deg) matrix(1, 0, 0, 1, 0, 0);
+           opacity: 1;
+         }
+       }
+     }
+
+     &[data-text_anim="ani5"] {
+       animation: ani5 0.5s linear forwards;
+
+       @keyframes ani5 {
+         0% {
+           opacity: 0;
+           transform: rotate(0deg) matrix(1, 0, 0, 0, 0, 13);
+         }
+
+         50% {
+           transform: rotate(0deg) matrix(1, 0, 0, 0.5, 0, 6.5);
+         }
+
+         100% {
+           transform: rotate(0deg) matrix(1, 0, 0, 1, 0, 0);
+           opacity: 1;
+         }
+       }
+     }
+
+     &[data-text_anim="ani6"] {
+       animation: ani6 1s linear forwards;
+
+       @keyframes ani6 {
+         0% {
+           opacity: 0;
+           transform: matrix(0.1, 0, 0, 1, 0, 0);
+         }
+
+         25% {
+           transform: matrix(1, 0, 0, 1, 0, 0);
+         }
+
+         50% {
+           opacity: 3;
+           transform: matrix(0.1, 0, 0, 1, 0, 0);
+         }
+
+         75% {
+           transform: matrix(-1, 0, 0, 1, 0, 0);
+         }
+
+         100% {
+           transform: matrix(1, 0, 0, 1, 0, 0);
+           opacity: 1;
+         }
+       }
+     }
+
+     &[data-text_anim="ani7"] {
+       animation: ani7 0.5s linear forwards;
+
+       @keyframes ani7 {
+         0% {
+           opacity: 0;
+           transform: rotate(-5deg) matrix(1, 0, 0, 1, 0, 27);
+         }
+
+         25% {
+           transform: rotate(5deg) matrix(1, 0, 0, 1, 0, 24);
+         }
+
+         50% {
+           opacity: 3;
+           transform: rotate(-4deg) matrix(1, 0, 0, 1, 0, 21);
+
+         }
+
+         75% {
+           transform: rotate(4deg) matrix(1, 0, 0, 1, 0, 18);
+         }
+
+         80% {
+           transform: rotate(-3deg) matrix(1, 0, 0, 1, 0, 15);
+         }
+
+         85% {
+           transform: rotate(3deg) matrix(1, 0, 0, 1, 0, 12);
+         }
+
+         90% {
+           transform: rotate(-2deg) matrix(1, 0, 0, 1, 0, 9);
+         }
+
+         95% {
+           transform: rotate(2deg) matrix(1, 0, 0, 1, 0, 6);
+         }
+
+         100% {
+           transform: rotate(0deg) matrix(1, 0, 0, 1, 0, 0);
+           opacity: 1;
+         }
+       }
+     }
+   }
+
+   .sticker_star_smile {
+     filter: drop-shadow(16px 16px 0px hwb(0 0% 100% / 0.25));
+     animation: sticker_star_smile 0.7s ease forwards;
+
+     @keyframes sticker_star_smile {
+       0% {
+         filter: drop-shadow(0px 0px 0px hwb(0 0% 100% / 0.25));
+       }
+
+       100% {
+         filter: drop-shadow(16px 16px 0px hwb(0 0% 100% / 0.25));
+       }
+     }
+
+     svg {
+       animation: sticker_star_smile_up 0.7s ease forwards;
+
+       @keyframes sticker_star_smile_up {
+         0% {
+           top: 16px;
+           left: 16px;
+         }
+
+         100% {
+           top: 0px;
+           left: 0px;
+         }
+       }
+
+       .sticker_star_smile_eye {
+         animation: sticker_star_smile_eye 1s ease forwards;
+
+         @keyframes sticker_star_smile_eye {
+
+           0%,
+           80% {
+             opacity: 1;
+           }
+
+           81%,
+           99% {
+             opacity: 0;
+           }
+
+           100% {
+             opacity: 1;
+           }
+         }
+       }
+     }
+
+     &:hover {
+       animation: sticker_star_smile_revers 0.5s ease forwards;
+
+       @keyframes sticker_star_smile_revers {
+         0% {
+           filter: drop-shadow(16px 16px 0px hwb(0 0% 100% / 0.25));
+         }
+
+         100% {
+           filter: drop-shadow(0px 0px 0px hwb(0 0% 100% / 0.25));
+         }
+       }
+
+       svg {
+         animation: sticker_star_smile_up_revers 0.5s ease forwards;
+
+         @keyframes sticker_star_smile_up_revers {
+           0% {
+             top: 0px;
+             left: 0px;
+           }
+
+           100% {
+             top: 16px;
+             left: 16px;
+           }
+         }
+       }
+     }
+   }
+
+   .small_smil {
+     .small_smil_eye {
+       animation: small_smil_eye 1s linear forwards;
+
+       @keyframes small_smil_eye {
+         0% {
+           transform: matrix(1, 0, 0, 1, 0, 0);
+         }
+
+         20% {
+           transform: matrix(0.8, 0, 0, 1, 0, 0);
+         }
+
+         // 25%{transform: matrix(0.9, 0, 0, 1, 0, 0);}
+         40% {
+           transform: matrix(1, 0, 0, 1, 0, 0);
+         }
+
+         60% {
+           transform: matrix(1, 0, 0.2, 1, 0, 0);
+         }
+
+         100% {
+           transform: matrix(1, 0, 0, 1, 0, 0);
+         }
+       }
+     }
+   }
+
+
+   .text_name {
+     &::after {
+       animation: mark_left_to_right 0.7s linear forwards 2;
+     }
+
+     @keyframes mark_left_to_right {
+       0% {
+         width: 0%;
+       }
+
+       49% {
+         left: 0%;
+         transform: translate(0%, -50%);
+       }
+
+       50% {
+         width: 100%;
+         left: 100%;
+         transform: translate(-100%, -50%);
+       }
+
+       100% {
+         width: 0%;
+         left: 100%;
+         transform: translate(-100%, -50%);
+       }
+     }
+   }
+
+   .arrow_name {
+    svg{
+      path{
+        transition: stroke-width 0.3s ease;
+      }
+    }
+     .arrow_name_line {
+       stroke-dashoffset: 1;
+       stroke-dasharray: 0 209;
+       animation: arrow_name_line 1s linear forwards;
+
+       @keyframes arrow_name_line {
+         0% {
+           stroke-dasharray: 0 209;
+         }
+
+         100% {
+           stroke-dasharray: 209 209;
+         }
+       }
+     }
+
+     .arrow_name_v {
+       stroke-dashoffset: 0;
+       // stroke: red; 
+       fill: #00000000;
+       stroke: #00000000;
+       stroke-dasharray: 0 29;
+       animation: arrow_name_v 1s 1s linear forwards;
+
+       @keyframes arrow_name_v {
+         0% {
+           stroke-dasharray: 0 29;
+           stroke: #00000000;
+         }
+
+         15% {
+           stroke: #000000;
+           fill: #00000000;
+           // stroke-dasharray: 77 141;
+         }
+
+         50% {
+           stroke-dasharray: 41 0;
+         }
+
+         100% {
+           stroke-dasharray: 141 0;
+           fill: #000000;
+           stroke: #000000;
+         }
+       }
+     }
+   }
+
+ }

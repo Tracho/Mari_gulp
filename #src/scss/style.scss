@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap');
+
+@import "../../node_modules/bootstrap/dist/css/bootstrap-grid.css";
+
+@import "./mixine.scss";
+@import "./global.scss";
+@import "./modules/nav.scss";
+@import "./modules/header.scss";
+@import "./modules/line_links.scss";
+
+
+
+@import "./modules/animation.scss";
+
+
+
+
+$redColor: rgba(244, 67, 54, 1);
+$blueColor: rgba(33, 150, 243, 1);
+
+@mixin icon {
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.icon_anim_vision_3D {
+  @include icon;
+  font-size: 26px;
+  -webkit-animation: Img3d 200ms infinite;
+  animation: Img3d 200ms infinite;
+  &:hover {
+    color: #fff;
+    -webkit-animation: Img3d 200ms infinite;
+    animation: Img3d 200ms infinite;
+
+    @keyframes icon3d {
+      0% {
+        text-shadow: 5px 4px $redColor, -5px -6px $blueColor;
+      }
+
+      25% {
+        text-shadow: -5px -6px $redColor, 5px 4px $blueColor;
+      }
+
+      50% {
+        text-shadow: 5px -4px $redColor, -8px 4px $blueColor;
+      }
+
+      75% {
+        text-shadow: -8px -4px $redColor, -5px -4px $blueColor;
+      }
+
+      100% {
+        text-shadow: -5px 0 $redColor, 5px -4px $blueColor;
+      }
+    }
+
+    @keyframes Img3d {
+      0% {
+        filter: drop-shadow(5px 4px red) drop-shadow(-5px -6px blue);
+      }
+      25% {
+        filter: drop-shadow(-5px -6px red) drop-shadow(5px 4px blue);
+      }
+      50% {
+        filter: drop-shadow(5px -4px red) drop-shadow(-8px 4px blue);
+      }
+      75% {
+        filter: drop-shadow(-8px -4px red) drop-shadow(-5px -4px blue);
+      }
+      100% {
+        filter: drop-shadow(-5px 0 red) drop-shadow(5px -4px blue);
+      }
+    }
+
+  }
+}

@@ -1,0 +1,63 @@
+$lg:960px;
+$md:720px;
+$sm:540px;
+
+$wh50_30: clamp(1.875rem, 0.9821rem + 2.8571vw, 3.125rem); // 1200 - 50 500 - 30
+$wh50px: 3.125rem;
+
+$fs48_21_500:clamp(1.3125rem, 0.1071rem + 3.8571vw, 3rem); // 48 - 21 1200 - 500
+$fs48_16:clamp(1rem, 0.3333rem + 3.5556vw, 3rem); // 48 - 16 1200 - 300 
+$fs48_16_500:clamp(1rem, -0.4286rem + 4.5714vw, 3rem); // 48 - 16 1200 - 500
+$fs36: 2.25rem;
+$fs36_24: clamp(1.5rem, 0.9643rem + 1.7143vw, 2.25rem);
+$fs24: 1.5rem;
+$black: #0C0C0C;
+$grey: #BEBFB4;
+$mark:#FFDC58;
+$body:#fefff0;
+
+
+// #font-weight
+$fw_l: 300;
+
+.fw_l {
+  font-weight: $fw_l;
+}
+
+$fw_r: 400;
+
+.fw_r {
+  font-weight: $fw_r;
+}
+
+$fw_m: 500;
+
+.fw_m {
+  font-weight: $fw_m;
+}
+
+$fw_sb: 600;
+
+.fw_sb {
+  font-weight: $fw_sb;
+}
+
+$fw_b: 700;
+
+.fw_b {
+  font-weight: $fw_b;
+}
+// #font-weight
+
+@mixin d_center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin ab_center{ 
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,331 @@
+ .big_container_nav {
+   @include d_center;
+   padding-top: clamp(2.5rem, 1.6964rem + 2.5714vw, 3.625rem); // 1200 = 58 / 500 = 40
+   padding-bottom: clamp(2.5rem, 1.6964rem + 2.5714vw, 3.625rem); // 1200 = 58 / 500 = 40 
+ }
+
+ .container_nav_orchid_star {
+   @include ab_center;
+   width: 100%;
+   height: 100%;
+   z-index: -25; 
+   max-width: 1920px;
+
+   @media (min-width:1920px) {
+    .over_hidden{
+      overflow: inherit; 
+     }
+   }
+ 
+
+   img.nav_orchid_star {
+     @include ab_center;
+   }
+
+   .nos_1 {
+     top: 0% !important;
+     left: 100% !important;
+   }
+
+   .nos_2 {
+     top: 100% !important;
+     left: 0% !important;
+     @media (max-width:$md) {
+      display: none;
+     }
+   }
+ }
+
+ .container_nav {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   width: 100%;
+ }
+
+ .nav_style {
+   position: relative;
+   max-width: 736px;
+   width: 100%;
+   @include d_center;
+   justify-content: space-between;
+   background-color: #fff;
+   z-index: 10;
+
+   @media (max-width:$md) {
+     max-width: 320px;
+     flex-direction: column;
+   }
+
+   &::before {
+     content: "";
+     @include ab_center;
+     width: 100%;
+     height: 100%;
+     border: 5px solid #000;
+     box-shadow: 6px 6px 0px $grey;
+     background: #fff;
+     z-index: -1;
+   }
+
+   a {
+     color: $black;
+     text-decoration: none;
+   }
+ }
+
+ $box_style_navWH: 11px;
+
+ .box_style_nav {
+   position: absolute;
+   display: block;
+   width: $box_style_navWH;
+   height: $box_style_navWH;
+   border: 3px solid #000;
+   background-color: #fff;
+   z-index: 20;
+ }
+
+ .bsn1 {
+   left: calc(0% - 12px);
+   top: calc(0% - 12px);
+   transform: translate(0%, 0%);
+ }
+
+ .bsn2 {
+   top: calc(100% - 12px);
+   left: calc(0% - 12px);
+   transform: translate(0, 50%);
+ }
+
+ .bsn3 {
+   left: calc(100% - 4px);
+   top: calc(0% - 12px);
+   transform: translate(0%, 0%);
+ }
+
+ .bsn4 {
+   left: calc(100% - 4px);
+   top: calc(100% - 12px);
+   transform: translate(0, 50%);
+ }
+
+
+ .box_style_nav_shadow {
+   position: absolute;
+   display: block;
+   width: $box_style_navWH;
+   height: $box_style_navWH;
+   background-color: $grey;
+   z-index: -10;
+ }
+
+ .bsn1shadow {
+   left: calc(0% - 1px);
+   top: calc(0% - 1px);
+   transform: translate(0%, 0%);
+ }
+
+ .bsn2shadow {
+   top: calc(100% + 7px);
+   left: calc(0% - 1px);
+   transform: translate(0, 0%);
+ }
+
+ .bsn3shadow {
+   left: calc(100% + 7px);
+   top: calc(0% - 1px);
+   transform: translate(0%, 0%);
+ }
+
+ .bsn4shadow {
+   left: calc(100% + 7px);
+   top: calc(100% + 7px);
+   transform: translate(0, 0%);
+ }
+
+
+
+ .logo {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   picture {
+     display: flex;
+
+     img {
+       max-width: $wh50_30;
+       max-height: $wh50_30;
+       object-fit: cover;
+     }
+   }
+
+   a,
+   span {
+     font-size: $fs36_24;
+   }
+ }
+
+ .navbar_nav {
+   margin: 0;
+   display: flex;
+   align-items: center;
+
+   @media (max-width:$md) {
+     //  display: none;
+     flex-direction: column; 
+     overflow-y: hidden;
+     height: 0px;
+     max-height: 0px;
+     opacity: 0;
+     pointer-events: none;
+     transition: 0.5s ease-in-out;
+   }
+
+   &[data-active="true"] {
+     display: flex;
+     opacity: 1;
+     pointer-events: inherit;
+     padding-top: 15px;
+     height: 100%;
+     max-height: 400px;
+     transition: 0.5s ease-in-out;
+   }
+
+   a {
+     font-size: $fs24;
+     padding: 15px;
+     min-width: 115px;
+     display: block;
+     text-align: center;
+   }
+
+   @media (min-width:$md) {
+     li::before {
+       content: "";
+       @include ab_center;
+       left: auto;
+       transform: translate(0%, -50%);
+       height: 100%;
+       border-left: 4px solid #000;
+     }
+   }
+ }
+
+ .burger_container {
+   display: none;
+
+   @media (max-width:$md) {
+     display: flex;
+     margin-right: 15px;
+   }
+
+   // .burger_btn{
+   //   cursor: pointer;
+   //   background: none;
+   //   border: none;
+   //   padding: 0;
+   //   margin: 0;
+   //   font: inherit;
+   //   position: relative;
+   //   display: flex;
+   //   justify-content: space-between;
+   //   flex-direction: column;
+   //   gap: 3px;
+   //   width: 24px;
+   //   height: 18px;
+
+   //   span{
+   //     width: 100%;
+   //     height: 4px;
+   //     background-color: #000;
+   //     border-radius: 50px;
+   //     display: flex;
+
+   //     // @include ab_center;
+   //     transition: 0.5s ease;
+   //   }
+   //   .bb1{}
+   //   .bb2{}
+   //   .bb3{
+
+   //   }
+   // }
+   // .burger_btn.active{
+   //   span.bb1, span.bb2, span.bb3{ 
+   //     transition: 0.5s ease;
+   //   }
+   //   span.bb1{
+   //     transform-origin: left; /* Вращение относительно левой стороны */ 
+   //     transform: rotate(40deg) translate(0px, 0px)
+   //   }
+   //   span.bb2{ 
+   //   }
+   //   span.bb3{
+   //     transform-origin: left; /* Вращение относительно правой стороны */
+   //     transform:rotate(40deg) translate(0px,0px)
+   //   }
+   // }
+
+
+
+   .burger {
+     cursor: pointer;
+     background: none;
+     border: none;
+     padding: 0;
+     margin: 0;
+     font: inherit;
+     width: 32px;
+     height: 24px;
+     cursor: pointer;
+     right: 2rem;
+     top: 2rem;
+     z-index: 20;
+   }
+
+   .burger span {
+     width: 100%;
+     height: 4px;
+     border-radius: 50px;
+     background-color: black;
+     display: block;
+     transition: background-color 0.3s ease-in-out;
+   }
+
+   .burger span::before,
+   .burger span::after {
+     content: "";
+     width: 100%;
+     background-color: black;
+     display: block;
+     transition: all 0.3s ease-in-out;
+     border-radius: 50px;
+
+     height: 4px;
+   }
+
+   .burger span::before {
+     transform: translateY(-10px);
+
+   }
+
+   .burger span::after {
+     transform: translateY(10px);
+     margin-top: -4px;
+   }
+
+
+   .burger.active span {
+     background-color: transparent;
+   }
+
+   .burger.active span::before {
+     transform: rotateZ(45deg) translateY(0);
+   }
+
+   .burger.active span::after {
+     transform: rotateZ(-45deg) translateY(0);
+   }
+ }

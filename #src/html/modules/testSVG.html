@@ -1,0 +1,254 @@
+
+<div class="p-5 position-relative">
+  <style>
+      #svgContainer {
+          border: 1px solid #ccc;
+          margin-top: 20px;
+          padding: 10px;
+      }
+      .control-list {
+          list-style-type: none;
+          padding: 0;
+      }
+      .control-list li {
+          margin-bottom: 10px;
+      }
+      .control-list label {
+          margin-right: 10px;
+      }
+      .control-list input[type="number"] {
+          width: 50px;
+      }
+      .control-list input[type="color"] {
+          width: 50px;
+      }
+      #animationControls {
+          margin-top: 20px;
+      }
+      #outputContainer {
+          margin-top: 20px;
+      }
+  </style>
+
+<h1>SVG Editor</h1> 
+<div id="animationControls">
+<button id="playAnimationButton">Проиграть анимацию</button>
+<button id="clearAnimationButton">Очистить анимацию</button>
+</div>
+<div id="outputContainer">
+<h2>Вывод</h2>
+<textarea id="cssOutput" rows="10" cols="50" placeholder="CSS код анимации"></textarea><br>
+<button id="copyCssButton">Скопировать CSS</button>
+</div>
+
+  <textarea id="svgInput" rows="10" cols="50" placeholder="Введите SVG код здесь"></textarea><br>
+  <button id="drawButton">Отрисовать SVG</button>
+  <div id="svgContainer" class="position-fixed" style="  top: 50%;
+      position: fixed;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);"></div>
+  <div id="controlsContainer" class="d-flex align-items-center justify-content-center flex-wrap"></div>
+</div>
+
+
+<script>
+  
+////////////// test 
+document.getElementById('drawButton').addEventListener('click', function() {
+  const svgInput = document.getElementById('svgInput').value;
+  const svgContainer = document.getElementById('svgContainer');
+  const controlsContainer = document.getElementById('controlsContainer');
+
+  // Очищаем контейнеры перед добавлением нового SVG
+  svgContainer.innerHTML = '';
+  controlsContainer.innerHTML = '';
+
+  // Вставляем SVG в контейнер
+  svgContainer.innerHTML = svgInput;
+
+  // Получаем все элементы внутри SVG
+  const svgElements = svgContainer.querySelectorAll('*');
+
+  svgElements.forEach((element, index) => {
+      // Генерируем уникальный класс
+      const randomValue = Math.floor(Math.random() * 100000);
+      const className = `${element.tagName.toLowerCase()}_${index}_${randomValue}`;
+      element.classList.add(className);
+
+      // Создаем элементы управления для каждого элемента
+      createControls(element, className);
+  });
+});
+
+function createControls(element, className) {
+  const controlsContainer = document.getElementById('controlsContainer');
+  const controlList = document.createElement('ul');
+  controlList.classList.add('control-list');
+
+  const titleLi = document.createElement('li');
+  titleLi.textContent = `Элемент: .${className}`;
+  controlList.appendChild(titleLi);
+
+  // Список известных атрибутов SVG
+  const svgAttributes = [
+      'stroke-dasharray', 'stroke-dashoffset', 'stroke', 'fill', 'stroke-width',
+      'cx', 'cy', 'r', 'x', 'y', 'width', 'height', 'transform', 'stroke-linecap', 'stroke-linejoin'
+  ];
+
+  svgAttributes.forEach(attribute => {
+      createControl(attribute, element, controlList);
+  });
+
+  // Добавляем поле для времени, процента и кнопку для сохранения изменений
+  const timeLi = document.createElement('li');
+  const timeLabel = document.createElement('label');
+  timeLabel.textContent = 'Время (сек): ';
+  const timeInput = document.createElement('input');
+  timeInput.type = 'number';
+  timeInput.value = '0';
+  timeInput.step = '0.1';
+
+  const percentLabel = document.createElement('label');
+  percentLabel.textContent = 'Процент: ';
+  const percentInput = document.createElement('input');
+  percentInput.type = 'number';
+  percentInput.value = '0';
+  percentInput.step = '1';
+  percentInput.min = '0';
+  percentInput.max = '100';
+
+  const saveButton = document.createElement('button');
+  saveButton.textContent = 'Сохранить';
+
+  timeLi.appendChild(timeLabel);
+  timeLi.appendChild(timeInput);
+  timeLi.appendChild(percentLabel);
+  timeLi.appendChild(percentInput);
+  timeLi.appendChild(saveButton);
+  controlList.appendChild(timeLi);
+
+  saveButton.addEventListener('click', () => {
+      saveAnimationData(element, className, controlList, timeInput.value, percentInput.value);
+  });
+
+  controlsContainer.appendChild(controlList);
+}
+
+function createControl(property, element, controlList) {
+  const li = document.createElement('li');
+  const label = document.createElement('label');
+
+  let rangeText = '';
+  if (property === 'stroke-dasharray') {
+      let totalLength = 0;
+      if (element.tagName === 'path' || element.tagName === 'circle' || element.tagName === 'ellipse' || element.tagName === 'line' || element.tagName === 'polyline' || element.tagName === 'polygon' || element.tagName === 'rect') {
+          totalLength = Math.round(element.getTotalLength());
+      }
+      rangeText = ` (0 - ${totalLength})`;
+  }
+
+  label.textContent = `${property}: ${rangeText}`;
+
+  let input;
+  if (property === 'stroke-dasharray' || property === 'stroke-dashoffset' || property === 'stroke-width' || property === 'cx' || property === 'cy' || property === 'r' || property === 'x' || property === 'y' || property === 'width' || property === 'height') {
+      input = document.createElement('input');
+      input.type = 'number';
+      input.value = element.getAttribute(property) || '';
+      input.addEventListener('input', function() {
+          element.setAttribute(property, input.value);
+      });
+  } else if (property === 'stroke' || property === 'fill') {
+      input = document.createElement('input');
+      input.type = 'color';
+      input.value = element.getAttribute(property) || '#000000';
+      input.addEventListener('input', function() {
+          element.setAttribute(property, input.value);
+      });
+  } else {
+      input = document.createElement('input');
+      input.type = 'text';
+      input.value = element.getAttribute(property) || '';
+      input.addEventListener('input', function() {
+          element.setAttribute(property, input.value);
+      });
+  }
+
+  li.appendChild(label);
+  li.appendChild(input);
+  controlList.appendChild(li);
+}
+
+let animationData = [];
+
+function saveAnimationData(element, className, controlList, time, percent) {
+  const elementData = {
+      element: element,
+      className: className,
+      time: time,
+      percent: percent,
+      attributes: {}
+  };
+
+  const inputs = controlList.querySelectorAll('input');
+  inputs.forEach(input => {
+      if (input.value && input.previousSibling.textContent.split(':')[0].trim() !== 'Время (сек)' && input.previousSibling.textContent.split(':')[0].trim() !== 'Процент') {
+          elementData.attributes[input.previousSibling.textContent.split(':')[0].trim()] = input.value;
+      }
+  });
+
+  animationData.push(elementData);
+  console.log('Анимация сохранена:', animationData);
+}
+
+document.getElementById('playAnimationButton').addEventListener('click', function() {
+  const style = document.createElement('style');
+  document.head.appendChild(style);
+  let css = '';
+
+  const animationMap = {};
+
+  animationData.forEach((elementData, index) => {
+      const { className, time, percent, attributes } = elementData;
+      if (!animationMap[className]) {
+          animationMap[className] = { keyframes: '', duration: time };
+      }
+
+      const keyframe = `${percent}% {
+          ${Object.entries(attributes).map(([key, value]) => `${key}: ${value};`).join('\n')}
+      }`;
+
+      animationMap[className].keyframes += keyframe;
+  });
+
+  Object.keys(animationMap).forEach(className => {
+      const { keyframes, duration } = animationMap[className];
+      const animationName = `animation_${className}`;
+      css += `@keyframes ${animationName} {
+          ${keyframes}
+      }
+      .${className} {
+          animation: ${animationName} ${duration}s linear infinite;
+      }`;
+  });
+
+  style.innerHTML = css;
+  document.getElementById('cssOutput').value = css;
+});
+
+document.getElementById('clearAnimationButton').addEventListener('click', function() {
+  animationData = [];
+  const styleElements = document.querySelectorAll('style');
+  styleElements.forEach(style => style.remove());
+  document.getElementById('cssOutput').value = '';
+  console.log('Анимация очищена');
+});
+
+document.getElementById('copyCssButton').addEventListener('click', function() {
+  const cssOutput = document.getElementById('cssOutput');
+  cssOutput.select();
+  document.execCommand('copy');
+  alert('CSS скопирован в буфер обмена');
+});
+
+</script>

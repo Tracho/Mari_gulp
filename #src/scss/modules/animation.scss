@@ -1,0 +1,24 @@
+._animScroll[data-anim="true"] {
+  ._container_word[data-animation="step_by_step"] {
+    ._this_letter {
+      animation: step_by_step 0.7s linear;
+
+      @keyframes step_by_step {
+        0% {
+          opacity: 0;
+          transform: matrix(1, 0, 0, 1, 0, 0);
+        }
+
+        50% {
+          transform: matrix(-1, 0, 0, 1, 0, 0);
+          opacity: 1;
+        }
+
+        100% {
+          transform: matrix(1, 0, 0, 1, 0, 0);
+        }
+      }
+    }
+  }
+
+}
