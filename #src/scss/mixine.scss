@@ -5,17 +5,35 @@ $sm:540px;
 $wh50_30: clamp(1.875rem, 0.9821rem + 2.8571vw, 3.125rem); // 1200 - 50 500 - 30
 $wh50px: 3.125rem;
 
+$fs80_40:clamp(2.5rem, 0.7143rem + 5.7143vw, 5rem);; // 80 - 40 1200 - 500
+$fs48_34:clamp(2.125rem, 1.5rem + 2vw, 3rem); // 48 - 34 1200 - 500
 $fs48_21_500:clamp(1.3125rem, 0.1071rem + 3.8571vw, 3rem); // 48 - 21 1200 - 500
 $fs48_16:clamp(1rem, 0.3333rem + 3.5556vw, 3rem); // 48 - 16 1200 - 300 
 $fs48_16_500:clamp(1rem, -0.4286rem + 4.5714vw, 3rem); // 48 - 16 1200 - 500
 $fs36: 2.25rem;
 $fs36_24: clamp(1.5rem, 0.9643rem + 1.7143vw, 2.25rem);
+$fs24_16: clamp(1rem, 0.6429rem + 1.1429vw, 1.5rem); // 24 - 16 1200 -500
 $fs24: 1.5rem;
 $black: #0C0C0C;
 $grey: #BEBFB4;
 $mark:#FFDC58;
+$yellow:#FFDC58;
+$red:#ff6258;
+$blue:#61bcff;
+$purple:#c5a1ff;
 $body:#fefff0;
-
+.fs80_40{
+  font-size: $fs80_40;
+}
+.fs48_34{
+  font-size: $fs48_34;
+}
+.fs48_21_500{
+  font-size: $fs48_21_500;
+}
+.fs24_16{
+  font-size: $fs24_16;
+}
 
 // #font-weight
 $fw_l: 300;
@@ -60,4 +78,16 @@ $fw_b: 700;
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
+}
+
+
+@mixin mark_left_to_right {
+  position: absolute;
+  content: "";
+  left: 0%;
+  top: 50%;
+  transform: translate(0%, -50%);
+  background-color: $mark;
+  width: 100%;
+  height: 100%;
 }

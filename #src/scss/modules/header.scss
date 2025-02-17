@@ -508,16 +508,6 @@
  }
 
 
- @mixin mark_left_to_right {
-   position: absolute;
-   content: "";
-   left: 0%;
-   top: 50%;
-   transform: translate(0%, -50%);
-   background-color: $mark;
-   width: 100%;
-   height: 100%;
- }
 
  .Smile_name_arrow {
    position: relative;
@@ -571,19 +561,6 @@
    }
 
    &:hover {
-     .small_smil_eye {
-       animation: wink 0.3s linear !important;
-
-       @keyframes wink {
-         0% {
-           opacity: 0;
-         }
-
-         100% {
-           opacity: 1;
-         }
-       }
-     }
 
      .text_name {
        &:before {
@@ -603,6 +580,23 @@
        }
      }
    }
+ }
+ .Smile_name_arrow{
+  &:hover {
+    .small_smil_eye {
+      animation: wink 0.3s linear !important;
+
+      @keyframes wink {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+  }
  }
 
  .sticker_star_smile {
@@ -807,202 +801,6 @@
          100% {
            transform: rotate(0deg) matrix(1, 0, 0, 1, 0, 0);
            opacity: 1;
-         }
-       }
-     }
-   }
-
-   .sticker_star_smile {
-     filter: drop-shadow(16px 16px 0px hwb(0 0% 100% / 0.25));
-     animation: sticker_star_smile 0.7s ease forwards;
-
-     @keyframes sticker_star_smile {
-       0% {
-         filter: drop-shadow(0px 0px 0px hwb(0 0% 100% / 0.25));
-       }
-
-       100% {
-         filter: drop-shadow(16px 16px 0px hwb(0 0% 100% / 0.25));
-       }
-     }
-
-     svg {
-       animation: sticker_star_smile_up 0.7s ease forwards;
-
-       @keyframes sticker_star_smile_up {
-         0% {
-           top: 16px;
-           left: 16px;
-         }
-
-         100% {
-           top: 0px;
-           left: 0px;
-         }
-       }
-
-       .sticker_star_smile_eye {
-         animation: sticker_star_smile_eye 1s ease forwards;
-
-         @keyframes sticker_star_smile_eye {
-
-           0%,
-           80% {
-             opacity: 1;
-           }
-
-           81%,
-           99% {
-             opacity: 0;
-           }
-
-           100% {
-             opacity: 1;
-           }
-         }
-       }
-     }
-
-     &:hover {
-       animation: sticker_star_smile_revers 0.5s ease forwards;
-
-       @keyframes sticker_star_smile_revers {
-         0% {
-           filter: drop-shadow(16px 16px 0px hwb(0 0% 100% / 0.25));
-         }
-
-         100% {
-           filter: drop-shadow(0px 0px 0px hwb(0 0% 100% / 0.25));
-         }
-       }
-
-       svg {
-         animation: sticker_star_smile_up_revers 0.5s ease forwards;
-
-         @keyframes sticker_star_smile_up_revers {
-           0% {
-             top: 0px;
-             left: 0px;
-           }
-
-           100% {
-             top: 16px;
-             left: 16px;
-           }
-         }
-       }
-     }
-   }
-
-   .small_smil {
-     .small_smil_eye {
-       animation: small_smil_eye 1s linear forwards;
-
-       @keyframes small_smil_eye {
-         0% {
-           transform: matrix(1, 0, 0, 1, 0, 0);
-         }
-
-         20% {
-           transform: matrix(0.8, 0, 0, 1, 0, 0);
-         }
-
-         // 25%{transform: matrix(0.9, 0, 0, 1, 0, 0);}
-         40% {
-           transform: matrix(1, 0, 0, 1, 0, 0);
-         }
-
-         60% {
-           transform: matrix(1, 0, 0.2, 1, 0, 0);
-         }
-
-         100% {
-           transform: matrix(1, 0, 0, 1, 0, 0);
-         }
-       }
-     }
-   }
-
-
-   .text_name {
-     &::after {
-       animation: mark_left_to_right 0.7s linear forwards 2;
-     }
-
-     @keyframes mark_left_to_right {
-       0% {
-         width: 0%;
-       }
-
-       49% {
-         left: 0%;
-         transform: translate(0%, -50%);
-       }
-
-       50% {
-         width: 100%;
-         left: 100%;
-         transform: translate(-100%, -50%);
-       }
-
-       100% {
-         width: 0%;
-         left: 100%;
-         transform: translate(-100%, -50%);
-       }
-     }
-   }
-
-   .arrow_name {
-    svg{
-      path{
-        transition: stroke-width 0.3s ease;
-      }
-    }
-     .arrow_name_line {
-       stroke-dashoffset: 1;
-       stroke-dasharray: 0 209;
-       animation: arrow_name_line 1s linear forwards;
-
-       @keyframes arrow_name_line {
-         0% {
-           stroke-dasharray: 0 209;
-         }
-
-         100% {
-           stroke-dasharray: 209 209;
-         }
-       }
-     }
-
-     .arrow_name_v {
-       stroke-dashoffset: 0;
-       // stroke: red; 
-       fill: #00000000;
-       stroke: #00000000;
-       stroke-dasharray: 0 29;
-       animation: arrow_name_v 1s 1s linear forwards;
-
-       @keyframes arrow_name_v {
-         0% {
-           stroke-dasharray: 0 29;
-           stroke: #00000000;
-         }
-
-         15% {
-           stroke: #000000;
-           fill: #00000000;
-           // stroke-dasharray: 77 141;
-         }
-
-         50% {
-           stroke-dasharray: 41 0;
-         }
-
-         100% {
-           stroke-dasharray: 141 0;
-           fill: #000000;
-           stroke: #000000;
          }
        }
      }

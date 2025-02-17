@@ -25,7 +25,7 @@ const webp = require("gulp-webp");
 const webphtml = require("gulp-webp-html");
 const svgSprite = require("gulp-svg-sprite");
 const ttf2woff = require("gulp-ttf2woff");
-const ttf2woff2 = require("gulp-ttf2woff2");
+// const ttf2woff2 = require("gulp-ttf2woff2");
  
 const fonter = require("gulp-fonter"); 
 const purgecss = require('gulp-purgecss');
@@ -108,7 +108,7 @@ function fonts() {
   src(path.src.fonts).pipe(ttf2woff()).pipe(dest(path.build.fonts));
   return gulp
     .src(path.src.fonts)
-    .pipe(ttf2woff2())
+    // .pipe(ttf2woff2())
     .pipe(dest(path.build.fonts));
 }
 
