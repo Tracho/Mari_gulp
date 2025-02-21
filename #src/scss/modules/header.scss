@@ -472,7 +472,7 @@
 
 
  //#h1_animation_text #h1 animation text
- .h1_animation_text {
+ .h1_animation_text ,._container_dancer_word{
    @include ab_center;
    width: 100%;
    height: 100%;
@@ -489,7 +489,7 @@
    }
 
 
-   .h1AminText {
+   .style_anim_letter {
      // display: inline-flex; 
      // flex-wrap: wrap;
      font-size: clamp(2.5rem, 0.7143rem + 5.7143vw, 5rem); // 80 - 40 1200 - 300
@@ -616,7 +616,7 @@
  // #Active Animation
  .header[data-anim="true"],
  ._animScroll[data-anim="true"] {
-   .h1AminText {
+   .style_anim_letter {
      &[data-text_anim="ani1"] {
        animation: ani1 0.5s linear forwards;
 

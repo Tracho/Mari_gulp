@@ -1917,7 +1917,8 @@ a.hover:hover .texthover::before {
   transition: width 0.7s ease;
 }
 
-.h1_animation_text {
+.h1_animation_text,
+._container_dancer_word {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1938,7 +1939,8 @@ a.hover:hover .texthover::before {
   pointer-events: none;
 }
 
-.h1_animation_text div {
+.h1_animation_text div,
+._container_dancer_word div {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1948,7 +1950,8 @@ a.hover:hover .texthover::before {
   padding-right: clamp(0.625rem, 0.2232rem + 1.2857vw, 1.1875rem);
 }
 
-.h1_animation_text .h1AminText {
+.h1_animation_text .style_anim_letter,
+._container_dancer_word .style_anim_letter {
   font-size: clamp(2.5rem, 0.7143rem + 5.7143vw, 5rem);
   font-weight: 500;
   color: #000;
@@ -1960,7 +1963,8 @@ a.hover:hover .texthover::before {
   opacity: 0;
 }
 
-.h1_animation_text .h1AminText[data-not_s=false] {
+.h1_animation_text .style_anim_letter[data-not_s=false],
+._container_dancer_word .style_anim_letter[data-not_s=false] {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -2134,8 +2138,8 @@ a.hover:hover .texthover::before {
   transition: all 0.5s ease-in;
 }
 
-.header[data-anim=true] .h1AminText[data-text_anim=ani1],
-._animScroll[data-anim=true] .h1AminText[data-text_anim=ani1] {
+.header[data-anim=true] .style_anim_letter[data-text_anim=ani1],
+._animScroll[data-anim=true] .style_anim_letter[data-text_anim=ani1] {
   -webkit-animation: ani1 0.5s linear forwards;
           animation: ani1 0.5s linear forwards;
 }
@@ -2180,8 +2184,8 @@ a.hover:hover .texthover::before {
   }
 }
 
-.header[data-anim=true] .h1AminText[data-text_anim=ani2],
-._animScroll[data-anim=true] .h1AminText[data-text_anim=ani2] {
+.header[data-anim=true] .style_anim_letter[data-text_anim=ani2],
+._animScroll[data-anim=true] .style_anim_letter[data-text_anim=ani2] {
   -webkit-animation: ani2 0.5s linear forwards;
           animation: ani2 0.5s linear forwards;
 }
@@ -2234,8 +2238,8 @@ a.hover:hover .texthover::before {
   }
 }
 
-.header[data-anim=true] .h1AminText[data-text_anim=ani3],
-._animScroll[data-anim=true] .h1AminText[data-text_anim=ani3] {
+.header[data-anim=true] .style_anim_letter[data-text_anim=ani3],
+._animScroll[data-anim=true] .style_anim_letter[data-text_anim=ani3] {
   -webkit-animation: ani3 0.5s linear forwards;
           animation: ani3 0.5s linear forwards;
 }
@@ -2288,8 +2292,8 @@ a.hover:hover .texthover::before {
   }
 }
 
-.header[data-anim=true] .h1AminText[data-text_anim=ani4],
-._animScroll[data-anim=true] .h1AminText[data-text_anim=ani4] {
+.header[data-anim=true] .style_anim_letter[data-text_anim=ani4],
+._animScroll[data-anim=true] .style_anim_letter[data-text_anim=ani4] {
   -webkit-animation: ani4 0.5s linear forwards;
           animation: ani4 0.5s linear forwards;
 }
@@ -2342,8 +2346,8 @@ a.hover:hover .texthover::before {
   }
 }
 
-.header[data-anim=true] .h1AminText[data-text_anim=ani5],
-._animScroll[data-anim=true] .h1AminText[data-text_anim=ani5] {
+.header[data-anim=true] .style_anim_letter[data-text_anim=ani5],
+._animScroll[data-anim=true] .style_anim_letter[data-text_anim=ani5] {
   -webkit-animation: ani5 0.5s linear forwards;
           animation: ani5 0.5s linear forwards;
 }
@@ -2386,8 +2390,8 @@ a.hover:hover .texthover::before {
   }
 }
 
-.header[data-anim=true] .h1AminText[data-text_anim=ani6],
-._animScroll[data-anim=true] .h1AminText[data-text_anim=ani6] {
+.header[data-anim=true] .style_anim_letter[data-text_anim=ani6],
+._animScroll[data-anim=true] .style_anim_letter[data-text_anim=ani6] {
   -webkit-animation: ani6 1s linear forwards;
           animation: ani6 1s linear forwards;
 }
@@ -2452,8 +2456,8 @@ a.hover:hover .texthover::before {
   }
 }
 
-.header[data-anim=true] .h1AminText[data-text_anim=ani7],
-._animScroll[data-anim=true] .h1AminText[data-text_anim=ani7] {
+.header[data-anim=true] .style_anim_letter[data-text_anim=ani7],
+._animScroll[data-anim=true] .style_anim_letter[data-text_anim=ani7] {
   -webkit-animation: ani7 0.5s linear forwards;
           animation: ani7 0.5s linear forwards;
 }
@@ -3136,6 +3140,128 @@ a.hover:hover .texthover::before {
   -webkit-transition: color 0.2s linear;
   -o-transition: color 0.2s linear;
   transition: color 0.2s linear;
+}
+
+.container_see_us_message {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #fff;
+  max-width: 1235px;
+  width: 100%;
+  border: 6px solid #000;
+  -webkit-box-shadow: clamp(0.34375rem, -0.4821rem + 2.6429vw, 1.5rem) clamp(0.34375rem, -0.4821rem + 2.6429vw, 1.5rem) 0px #BEBFB4;
+          box-shadow: clamp(0.34375rem, -0.4821rem + 2.6429vw, 1.5rem) clamp(0.34375rem, -0.4821rem + 2.6429vw, 1.5rem) 0px #BEBFB4;
+  padding: clamp(3.75rem, 3.3036rem + 1.4286vw, 4.375rem) clamp(0.8125rem, -0.3929rem + 3.8571vw, 2.5rem);
+}
+
+.container_see_us_message .container_nav_orchid_star {
+  z-index: 10;
+}
+
+.container_see_us_message .container_nav_orchid_star .nav_orchid_star {
+  max-width: clamp(5rem, 1.8304rem + 10.1429vw, 9.4375rem);
+  max-height: clamp(4.1875rem, 1.5089rem + 8.5714vw, 7.9375rem);
+  top: 0%;
+  left: 75%;
+}
+
+.container_see_us_message .container_nav_orchid_star[data-anim=false] .nav_orchid_star {
+  opacity: 0;
+}
+
+.container_see_us_message .container_nav_orchid_star[data-anim=true] .nav_orchid_star {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  -o-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.container_see_us_message .sum_header {
+  max-width: 850px;
+  position: relative;
+}
+
+.container_see_us_message .sum_header h2 {
+  font-size: clamp(1.3125rem, 0.1071rem + 3.8571vw, 3rem);
+  color: rgba(0, 0, 0, 0);
+  text-align: center;
+  margin: 0;
+}
+
+.container_see_us_message .sum_header .sum_header_letters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-content: center;
+}
+
+.container_see_us_message .sum_header .sum_header_letters div {
+  padding: 0 clamp(0.14375rem, 0.0054rem + 0.4429vw, 0.3375rem);
+}
+
+.container_see_us_message .sum_header .sum_header_letters div:first-child {
+  padding-left: 0px;
+}
+
+.container_see_us_message .sum_header .sum_header_letters div:last-child {
+  padding-right: 0px;
+}
+
+.container_see_us_message .sum_header .sum_header_letters .style_anim_letter {
+  font-size: clamp(1.3125rem, 0.1071rem + 3.8571vw, 3rem);
+  color: #000;
+}
+
+.container_see_us_message .sum_title {
+  max-width: 850px;
+  position: relative;
+}
+
+.container_see_us_message .sum_title p {
+  font-size: clamp(1rem, 0.2857rem + 2.2857vw, 2rem);
+  color: rgba(0, 0, 0, 0);
+  text-align: center;
+  white-space: pre-line;
+  margin: 0;
+}
+
+.container_see_us_message .sum_title .sum_title_letters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container_see_us_message .sum_title .sum_title_letters div {
+  padding: 0 clamp(0.10625rem, 0.0036rem + 0.3286vw, 0.25rem);
+}
+
+.container_see_us_message .sum_title .sum_title_letters .style_anim_letter {
+  font-size: clamp(1rem, 0.2857rem + 2.2857vw, 2rem);
+  color: #000;
 }
 
 .sticker_star_smile_blue {
@@ -4653,6 +4779,11 @@ a.hover:hover .texthover::before {
   transition: opacity 0.2s 1.2s linear, fill-opacity 0.2s 1.2s linear;
 }
 
+._animScroll[data-anim=true] .rotate_show_center {
+  -webkit-animation: rotate_show_center 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+  animation: rotate_show_center 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
 @-webkit-keyframes bg_left_to_right {
   0% {
     width: 0%;
@@ -4988,6 +5119,34 @@ a.hover:hover .texthover::before {
   100% {
     -webkit-transform: translateX(0px);
     transform: translateX(0px);
+  }
+}
+
+@-webkit-keyframes rotate_show_center {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate_show_center {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+    opacity: 0;
+  }
+
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+    opacity: 1;
   }
 }
 
@@ -5711,5 +5870,9 @@ a.hover:hover .texthover::before {
   .portfolio_clents .svg_new svg {
     width: 35px;
     height: 35px;
+  }
+
+  .container_see_us_message .container_nav_orchid_star .nav_orchid_star {
+    left: 50%;
   }
 }

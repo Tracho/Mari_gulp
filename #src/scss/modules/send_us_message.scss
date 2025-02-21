@@ -1,0 +1,100 @@
+ $sum_shadow:clamp(0.34375rem, -0.4821rem + 2.6429vw, 1.5rem); // 21 - 5.5 1200 - 500
+ $sum_pd_y  : clamp(3.75rem, 3.3036rem + 1.4286vw, 4.375rem); // 70 - 60 1200 - 500
+ $sum_pd_x  : clamp(0.8125rem, -0.3929rem + 3.8571vw, 2.5rem); // 40 - 13 1200 - 500
+ $sum_mx_text: 850px;
+
+ .container_see_us_message {
+  position: relative;
+  @include d_center();
+  flex-direction: column;
+  background-color: #fff;
+   max-width : 1235px;
+   width     : 100%;
+   border    : 6px solid #000;
+   box-shadow: $sum_shadow $sum_shadow 0px $grey;
+   padding   : $sum_pd_y $sum_pd_x;
+
+   .container_nav_orchid_star{
+    z-index: 10;
+    .nav_orchid_star{
+      max-width: clamp(5rem, 1.8304rem + 10.1429vw, 9.4375rem); // 151 - 80 1200 - 500
+      max-height: clamp(4.1875rem, 1.5089rem + 8.5714vw, 7.9375rem); // 127 - 67 1200 - 500
+      top: 0%;
+      left: 75%;
+      @media (max-width:$sm) {
+        left: 50%;
+      }
+    }
+   }
+   .container_nav_orchid_star[data-anim="false"]{
+    .nav_orchid_star{
+      opacity: 0;
+    }
+   }
+   .container_nav_orchid_star[data-anim="true"]{
+    .nav_orchid_star{
+     
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    }
+   }
+
+   .sum_header { 
+    max-width: $sum_mx_text;
+    position: relative;
+
+    h2{
+      font-size: $fs48_21_500;
+      color:#00000000;
+      text-align: center;  
+      margin: 0
+    }
+
+    .sum_header_letters {
+      @include d_center();
+      // justify-content: space-between;
+      justify-content: center;
+      div{
+        padding: 0 clamp(0.14375rem, 0.0054rem + 0.4429vw, 0.3375rem); // 5.4 - 2.3 1200 - 500 
+      }
+      div:first-child{
+        padding-left: 0px;
+      }
+      div:last-child{
+        padding-right: 0px;
+      }
+      .style_anim_letter{
+        font-size: $fs48_21_500;
+        color:#000;
+
+      }
+     }
+   }
+
+   .sum_title {
+    max-width: $sum_mx_text;
+    position: relative;
+
+    p{
+      font-size: $fs32_16;
+      color:#00000000;
+      text-align: center;
+      white-space: pre-line; //  
+      margin: 0;
+    }
+     .sum_title_letters {
+      @include d_center();
+      // justify-content: space-evenly;
+      div{
+        padding: 0 clamp(0.10625rem, 0.0036rem + 0.3286vw, 0.25rem); // 4 - 1.7 1200 - 500
+      }
+      .style_anim_letter{
+        font-size: $fs32_16;
+        color:#000;
+      }
+     }
+   }
+
+   .sum_btn {}
+ }
+ 
