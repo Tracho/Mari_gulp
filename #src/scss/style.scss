@@ -1,20 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap');
+ 
+@font-face {
+  font-family: 'Space Grotesk';
+  font-display: swap;
+  src: url('/fonts/SpaceGrotesk-VariableFont_wght.woff') format('woff') ;
+  font-weight: 100 900; 
+}
 
-@import "../../node_modules/bootstrap/dist/css/bootstrap-grid.css";
+
+// @import "../../node_modules/bootstrap/dist/css/bootstrap-grid.css";
 
 @import "./mixine.scss";
 @import "./global.scss";
 @import "./modules/nav.scss";
 @import "./modules/header.scss";
 @import "./modules/line_links.scss";
-@import "./modules/table.scss";
+@import "./modules/table.scss"; 
 @import "./modules/my_portfolio.scss";
 @import "./modules/clients_section.scss";
 @import "./modules/send_us_message.scss";
+@import "./modules/footer.scss";
 
 
 

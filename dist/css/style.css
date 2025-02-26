@@ -1,16 +1,11 @@
 @charset "UTF-8";
 
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap");
-
-@import "../../node_modules/bootstrap/dist/css/bootstrap-grid.css";
+@font-face {
+  font-family: "Space Grotesk";
+  font-display: swap;
+  src: url("/fonts/SpaceGrotesk-VariableFont_wght.woff") format("woff");
+  font-weight: 100 900;
+}
 
 .fs80_40 {
   font-size: clamp(2.5rem, 0.7143rem + 5.7143vw, 5rem);
@@ -26,6 +21,10 @@
 
 .fs48_21_500 {
   font-size: clamp(1.3125rem, 0.1071rem + 3.8571vw, 3rem);
+}
+
+.fs36_24 {
+  font-size: clamp(1.5rem, 0.9643rem + 1.7143vw, 2.25rem);
 }
 
 .fs24_16 {
@@ -94,6 +93,11 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
+}
+
+.over_hidden0 {
+  overflow: hidden;
+  position: relative;
 }
 
 .w_100 {
@@ -3198,6 +3202,7 @@ a.hover:hover .texthover::before {
   color: rgba(0, 0, 0, 0);
   text-align: center;
   margin: 0;
+  z-index: 20;
 }
 
 .container_see_us_message .sum_header .sum_header_letters {
@@ -3241,6 +3246,7 @@ a.hover:hover .texthover::before {
   text-align: center;
   white-space: pre-line;
   margin: 0;
+  z-index: 20;
 }
 
 .container_see_us_message .sum_title .sum_title_letters {
@@ -3262,6 +3268,77 @@ a.hover:hover .texthover::before {
 .container_see_us_message .sum_title .sum_title_letters .style_anim_letter {
   font-size: clamp(1rem, 0.2857rem + 2.2857vw, 2rem);
   color: #000;
+}
+
+.footer_border {
+  border-top: 6px solid #000;
+  margin-top: 100px;
+}
+
+.container_title_footer {
+  margin-top: clamp(4.0625rem, 2.9464rem + 3.5714vw, 5.625rem);
+  margin-bottom: clamp(4.0625rem, 2.9464rem + 3.5714vw, 5.625rem);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container_title_footer .block_logotype .logo {
+  font-size: clamp(1.5rem, 0.9643rem + 1.7143vw, 2.25rem);
+  font-weight: 400;
+  color: #000;
+  text-decoration: none;
+}
+
+.container_title_footer .block_logotype .logo span {
+  font-size: clamp(1.5rem, 0.9643rem + 1.7143vw, 2.25rem);
+  font-weight: 400;
+}
+
+.container_title_footer .info_page span {
+  font-size: clamp(1.5rem, 0.9643rem + 1.7143vw, 2.25rem);
+  font-weight: 500;
+}
+
+.container_title_footer .social ul {
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style-type: none;
+}
+
+.container_title_footer .social ul li {
+  margin: 0 clamp(1rem, 0.2857rem + 2.2857vw, 2rem);
+  width: clamp(2.125rem, 1.5rem + 2vw, 3rem);
+  height: clamp(2.125rem, 1.5rem + 2vw, 3rem);
+}
+
+.container_title_footer .social ul li svg {
+  max-width: 48px;
+  width: clamp(2.125rem, 1.5rem + 2vw, 3rem);
+  height: clamp(2.125rem, 1.5rem + 2vw, 3rem);
+}
+
+.container_title_footer .social ul li:first-child {
+  margin-left: 0;
+}
+
+.container_title_footer .social ul li:last-child {
+  margin-right: 0;
 }
 
 .sticker_star_smile_blue {
@@ -3354,6 +3431,36 @@ a.hover:hover .texthover::before {
   fill-opacity: 0;
   stroke-dashoffset: 0;
   stroke-dasharray: 0 58;
+}
+
+._animScroll[data-anim=false] .svg_dribbble svg path {
+  fill-opacity: 0;
+  stroke-dashoffset: 1;
+  stroke-dasharray: 0 150;
+}
+
+._animScroll[data-anim=false] .svg_insta svg path {
+  stroke-width: 2px;
+  stroke: #000;
+  stroke-dasharray: 142 142;
+  stroke-dashoffset: 0;
+  fill-opacity: 0;
+}
+
+._animScroll[data-anim=false] .svg_x svg path {
+  fill-opacity: 0;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 0 300;
+  stroke-width: 2px;
+  stroke-opacity: 1;
+  stroke: #000;
+}
+
+._animScroll[data-anim=false] .show {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s linear;
+  -o-transition: opacity 0.5s linear;
+  transition: opacity 0.5s linear;
 }
 
 .before_bg_yellow_left_to_right,
@@ -4784,6 +4891,191 @@ a.hover:hover .texthover::before {
   animation: rotate_show_center 0.6s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 }
 
+._animScroll[data-anim=true] .svg_dribbble svg path {
+  fill-opacity: 1;
+  stroke-dashoffset: 1;
+}
+
+._animScroll[data-anim=true] .svg_dribbble svg .svg_dribbble_path_1 {
+  stroke-dasharray: 126 126;
+  -webkit-transition: stroke-dasharray 0.7s ease;
+  -o-transition: stroke-dasharray 0.7s ease;
+  transition: stroke-dasharray 0.7s ease;
+}
+
+._animScroll[data-anim=true] .svg_dribbble svg .svg_dribbble_path_2 {
+  stroke-dasharray: 39 39;
+  -webkit-transition: stroke-dasharray 1s 0.3s linear;
+  -o-transition: stroke-dasharray 1s 0.3s linear;
+  transition: stroke-dasharray 1s 0.3s linear;
+}
+
+._animScroll[data-anim=true] .svg_dribbble svg .svg_dribbble_path_3 {
+  stroke-dasharray: 41 41;
+  -webkit-transition: stroke-dasharray 1s 0.3s linear;
+  -o-transition: stroke-dasharray 1s 0.3s linear;
+  transition: stroke-dasharray 1s 0.3s linear;
+}
+
+._animScroll[data-anim=true] .svg_dribbble svg .svg_dribbble_path_4 {
+  stroke-dasharray: 51 51;
+  -webkit-transition: stroke-dasharray 1s 0.3s linear;
+  -o-transition: stroke-dasharray 1s 0.3s linear;
+  transition: stroke-dasharray 1s 0.3s linear;
+}
+
+._animScroll[data-anim=true] .svg_dribbble svg .svg_dribbble_path_5 {
+  stroke-dasharray: 77 77;
+  -webkit-transition: stroke-dasharray 1.3s ease;
+  -o-transition: stroke-dasharray 1.3s ease;
+  transition: stroke-dasharray 1.3s ease;
+}
+
+._animScroll[data-anim=true] .svg_dribbble:hover svg path {
+  -webkit-transition: stroke-dasharray 0.5s ease;
+  -o-transition: stroke-dasharray 0.5s ease;
+  transition: stroke-dasharray 0.5s ease;
+}
+
+._animScroll[data-anim=true] .svg_dribbble:hover svg .svg_dribbble_path_1 {
+  stroke-dasharray: 10;
+}
+
+._animScroll[data-anim=true] .svg_dribbble:hover svg .svg_dribbble_path_5 {
+  stroke-dasharray: 0 77;
+}
+
+._animScroll[data-anim=true] .svg_insta svg path {
+  stroke-width: 0px;
+  stroke: #000;
+  stroke-dasharray: 142 142;
+  stroke-dashoffset: 1;
+  fill-opacity: 1;
+  -webkit-animation: svg_insta 1.3s linear;
+          animation: svg_insta 1.3s linear;
+  -webkit-transition: stroke-width 0.3s linear, fill-opacity 0.3s linear;
+  -o-transition: stroke-width 0.3s linear, fill-opacity 0.3s linear;
+  transition: stroke-width 0.3s linear, fill-opacity 0.3s linear;
+}
+
+@-webkit-keyframes svg_insta {
+  0% {
+    fill-opacity: 0;
+    stroke-dasharray: 0 142;
+    stroke-width: 2px;
+  }
+
+  70% {
+    stroke-dasharray: 142 142;
+    stroke-width: 2px;
+    fill-opacity: 0;
+  }
+
+  100% {
+    stroke-width: 0px;
+    fill-opacity: 1;
+    stroke-dasharray: 142 142;
+  }
+}
+
+@keyframes svg_insta {
+  0% {
+    fill-opacity: 0;
+    stroke-dasharray: 0 142;
+    stroke-width: 2px;
+  }
+
+  70% {
+    stroke-dasharray: 142 142;
+    stroke-width: 2px;
+    fill-opacity: 0;
+  }
+
+  100% {
+    stroke-width: 0px;
+    fill-opacity: 1;
+    stroke-dasharray: 142 142;
+  }
+}
+
+._animScroll[data-anim=true] .svg_insta:hover svg path {
+  stroke-width: 2px;
+  stroke-opacity: 1;
+  fill-opacity: 0;
+  -webkit-transition: stroke-width 0.3s linear, fill-opacity 0.3s linear;
+  -o-transition: stroke-width 0.3s linear, fill-opacity 0.3s linear;
+  transition: stroke-width 0.3s linear, fill-opacity 0.3s linear;
+}
+
+._animScroll[data-anim=true] .svg_x svg path {
+  fill-opacity: 1;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 300 300;
+  stroke-opacity: 0;
+  stroke-width: 2px;
+  stroke: #000;
+  -webkit-animation: svg_x 1.3s linear;
+          animation: svg_x 1.3s linear;
+  -webkit-transition: stroke-opacity 0.3s linear, fill-opacity 0.3s linear;
+  -o-transition: stroke-opacity 0.3s linear, fill-opacity 0.3s linear;
+  transition: stroke-opacity 0.3s linear, fill-opacity 0.3s linear;
+}
+
+@-webkit-keyframes svg_x {
+  0% {
+    stroke-dasharray: 0 300;
+    fill-opacity: 0;
+    stroke-opacity: 1;
+  }
+
+  70% {
+    stroke-dasharray: 300 300;
+    fill-opacity: 0;
+    stroke-opacity: 1;
+  }
+
+  100% {
+    fill-opacity: 1;
+    stroke-dasharray: 300 300;
+    stroke-opacity: 0;
+  }
+}
+
+@keyframes svg_x {
+  0% {
+    stroke-dasharray: 0 300;
+    fill-opacity: 0;
+    stroke-opacity: 1;
+  }
+
+  70% {
+    stroke-dasharray: 300 300;
+    fill-opacity: 0;
+    stroke-opacity: 1;
+  }
+
+  100% {
+    fill-opacity: 1;
+    stroke-dasharray: 300 300;
+    stroke-opacity: 0;
+  }
+}
+
+._animScroll[data-anim=true] .svg_x:hover svg path {
+  stroke-opacity: 1;
+  fill-opacity: 0;
+  -webkit-transition: stroke-opacity 0.3s linear, fill-opacity 0.3s linear;
+  -o-transition: stroke-opacity 0.3s linear, fill-opacity 0.3s linear;
+  transition: stroke-opacity 0.3s linear, fill-opacity 0.3s linear;
+}
+
+._animScroll[data-anim=true] .show {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s linear;
+  -o-transition: opacity 0.5s linear;
+  transition: opacity 0.5s linear;
+}
+
 @-webkit-keyframes bg_left_to_right {
   0% {
     width: 0%;
@@ -5874,5 +6166,26 @@ a.hover:hover .texthover::before {
 
   .container_see_us_message .container_nav_orchid_star .nav_orchid_star {
     left: 50%;
+  }
+
+  .container_title_footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .container_title_footer .block_logotype,
+  .container_title_footer .info_page {
+    margin-bottom: 27px;
+  }
+
+  .container_title_footer .social {
+    max-width: 270px;
+    width: 100%;
+  }
+
+  .container_title_footer .social ul li {
+    margin: 0;
   }
 }

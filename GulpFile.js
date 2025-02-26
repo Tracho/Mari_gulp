@@ -10,6 +10,8 @@ let fs = require("fs"); // файл систем
 
 const { src, dest,   series, parallel } = require('gulp');
 const gulp = require("gulp");
+const htmlmin = require("gulp-htmlmin"); // Подключаем плагин
+
 const browsersync = require("browser-sync").create();
 const fileinclude = require("gulp-file-include"); // @@include('h.html') в html
 const del = require("del");
@@ -49,7 +51,7 @@ let path = {
     css: source_folder + "/scss/style.scss",
     js: source_folder + "/js/**/*.js", // Update to include all JS files in the js folder and its subfolders
     img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
-    fonts: source_folder + "/fonts/*.ttf",
+    fonts: source_folder + "/fonts/**/*.ttf",
   },
 
   watch: {
@@ -57,7 +59,7 @@ let path = {
     css: source_folder + "/scss/**/*.scss",
     js: source_folder + "/js/**/*.js",
     img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
-    //fonts: source_folder + "/fonts/*.ttf",
+    fonts: source_folder + "/fonts/**/*.ttf",
   },
   clean: "./" + project_folder + "/",
 };
@@ -73,12 +75,33 @@ function browserSync(params) {
   });
 }
 
+// function html() {
+//   return gulp
+//     .src(path.src.html)
+//     .pipe(fileinclude())
+//     .pipe(webphtml())
+//     .pipe(dest(path.build.html))
+//     .pipe(browsersync.stream());
+// }
+
 function html() {
   return gulp
     .src(path.src.html)
-    .pipe(fileinclude())
-    .pipe(webphtml())
-    .pipe(dest(path.build.html))
+    .pipe(fileinclude()) // Объединяем части HTML
+    .pipe(webphtml()) // Поддержка webp в HTML
+    .pipe(
+      htmlmin({
+        collapseWhitespace: true, // Убирает пробелы и переносы строк
+        removeComments: true, // Убирает комментарии
+        removeRedundantAttributes: true, // Удаляет ненужные атрибуты (например, type="text" у input)
+        removeEmptyAttributes: true, // Удаляет пустые атрибуты
+        removeScriptTypeAttributes: true, // Удаляет type="text/javascript"
+        removeStyleLinkTypeAttributes: true, // Удаляет type="text/css"
+        minifyJS: true, // Минификация JS внутри HTML
+        minifyCSS: true, // Минификация CSS внутри HTML
+      })
+    )
+    .pipe(dest(path.build.html)) // Кидаем в папку dist
     .pipe(browsersync.stream());
 }
 
@@ -105,10 +128,11 @@ function images() {
 }
 
 function fonts() {
-  src(path.src.fonts).pipe(ttf2woff()).pipe(dest(path.build.fonts));
+  src(path.src.fonts)
+    .pipe(dest(path.build.fonts)); // Копирование оригинальных .ttf файлов
   return gulp
     .src(path.src.fonts)
-    // .pipe(ttf2woff2())
+    .pipe(ttf2woff())
     .pipe(dest(path.build.fonts));
 }
 
@@ -217,6 +241,7 @@ function watchFiles(params) {
   gulp.watch([path.watch.css], css);
   gulp.watch([path.watch.js], js);
   gulp.watch([path.watch.img], images);
+  gulp.watch([path.watch.fonts], fonts); 
 }
 
 function clean(params) {
@@ -255,7 +280,9 @@ gulp.task("otf2ttf", function () {
 
 let fontsBuild = gulp.series(clean, fonts, fontsStyle);
 // let build = gulp.task('build', gulp.series('purgecss', gulp.parallel(js, css, html, images)));
-let build = gulp.series(clean,gulp.series('purgecss'), gulp.parallel(js, css, html, images));
+// let build = gulp.series(clean,gulp.series('purgecss'), gulp.parallel(js, css, html, images));
+let build = gulp.series(clean, gulp.series('purgecss'), gulp.parallel(js, css, html, images, fonts));
+
 // let build = gulp.series(clean, gulp.series('purgecss'), gulp.parallel(js, css, html, images), measurePerformance);
 
 let watch = gulp.parallel(build, watchFiles, browserSync);
