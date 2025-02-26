@@ -1,12 +1,5 @@
 @charset "UTF-8";
 
-@font-face {
-  font-family: "Space Grotesk";
-  font-display: swap;
-  src: url("../fonts/SpaceGrotesk-VariableFont_wght.woff") format("woff");
-  font-weight: 100 900;
-}
-
 .fs80_40 {
   font-size: clamp(2.5rem, 0.7143rem + 5.7143vw, 5rem);
 }
